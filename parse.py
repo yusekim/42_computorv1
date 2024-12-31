@@ -26,3 +26,14 @@ def buildTerm(split):
 		elif split[i][0] == 'X':
 			exponent = float(split[i][2:])
 			termList.append(modules.Term(exponent, coefficient))
+
+def symplify():
+	i = 0
+	while i < len(termList) - 1:
+		if termList[i].exponent == termList[i + 1].exponent:
+			termList[i + 1].coefficient += termList[i].coefficient
+			termList.pop(i)
+			if termList[i].coefficient == 0:
+				termList.pop(i)
+		else:
+			i += 1
