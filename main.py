@@ -13,4 +13,4 @@ parse.symplify()
 poly = modules.Polynomial(termList)
 print("Reduced form:", poly)
 poly.print_degree()
-poly.calculate()
+poly.calculate()      # 판별식이 음수일 때 허근 구해야함 α + β*i.

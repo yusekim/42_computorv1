@@ -8,7 +8,9 @@ class Term: # 항
 class Polynomial:
 	def __init__(self, terms):
 		self.terms = terms # Term 배열
-		self.degree = terms[-1].exponent # 가장 큰 차수
+		self.degree = 0
+		if len(self.terms):
+			self.degree = terms[-1].exponent # 가장 큰 차수
 		self.is_solution_is_real = False # 해가 모든 실수일 경우 True
 
 	def __str__(self):
@@ -74,7 +76,7 @@ class Polynomial:
 
 	def calculate_oneD(self):
 		solution = self.terms[0].coefficient / self.terms[-1].coefficient * -1
-		print("The solution is:", solution, sep='\n')
+		print("The solution is:", round(solution, 6), sep='\n')
 
 	@staticmethod
 	def format_term(coefficient, exponent):
