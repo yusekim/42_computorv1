@@ -67,12 +67,13 @@ class Polynomial:
 			ans2 = (-b + ft_math.sqrt(D)) / (2 * a)
 			print(round(ans1, 6), round(ans2, 6), sep="\n")
 		elif D < 0:
-			print("Discriminant is strictly negative, I can't solve.")
-			exit()
+			print("Discriminant is strictly negative, the two solutions are:")
+			D = ft_math.sqrt(ft_math.abs(D)) / (2 * a)
+			print(round(-b / (2 * a), 6), " + ", round(D, 6), 'i', sep="")
+			print(round(-b / (2 * a), 6), " - ", round(D, 6), 'i', sep="")
 		else:
 			print("Discriminant is strictly zero, the solution is:")
 			print(-b / 2 *a)
-
 
 	def calculate_oneD(self):
 		solution = self.terms[0].coefficient / self.terms[-1].coefficient * -1
